@@ -17,5 +17,20 @@ namespace Clases
             Defensa = 10;
             listadoCombates = new List<Combate>();
         }
+
+        public override void Atacar(Personaje objetivo)
+        {
+            Random random = new Random();
+            
+            int danio = Ataque - objetivo.Defensa;
+            if(random.NextDouble() <= 0.25)
+            { 
+                objetivo.RecibirDanio(danio * 2);
+            }
+            else
+            {
+                objetivo.RecibirDanio(danio);
+            }
+        }
     }
 }
